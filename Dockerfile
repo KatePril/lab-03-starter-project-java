@@ -2,10 +2,9 @@ FROM maven:3.9-amazoncorretto-21-alpine  AS build
 
 WORKDIR /app
 
+COPY wait-for-it.sh .
 COPY pom.xml .
 COPY src ./src
-COPY wait-for-it.sh .
-
 
 RUN mvn clean package
 
